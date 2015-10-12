@@ -1,0 +1,45 @@
+#mainscreen {
+  width: 320px;
+  height: 480px;
+  background: red;
+  margin: 0 auto;
+  font-size: 30px;
+}
+
+h3 {
+  font-size: 30px;
+  color: white;
+  font-family: Arial;
+  position: relative;
+  text-align: right;
+  margin: 10px;
+
+}
+
+img {
+  width: 60px;
+  height: 60px;
+  background: url(../images/coke.gif);
+  background-size: 60px 60px;
+  background-repeat: no-repeat;
+  border-style: none;
+  position: relative;
+  margin: 0px;
+  padding: 0px;
+  opacity: 0.5;
+}
+
+
+
+.bubbles {
+  width: 60px;
+  height: 60px;
+  background: url(../images/smiley.jpg);
+  background-size: 60px 60px;
+  background-repeat: no-repeat;
+  border-style: none;
+  position: relative;
+  margin: 0px;
+  padding: 0px;
+  opacity: 0.5;
+}
