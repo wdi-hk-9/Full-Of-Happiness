@@ -1,10 +1,18 @@
+.container {
+  width: 400px;
+}
+
+#start-btn {
+  margin: 0 auto;
+}
+
 #mainscreen {
   width: 320px;
   height: 480px;
   background: red;
   margin: 0 auto;
   padding: 25px;
-  font-size: 30px;
+  position: relative;
 }
 
 #score {
@@ -14,22 +22,27 @@
   position: relative;
   text-align: right;
   margin: -10px;
-
 }
 
-#start-btn {
-  margin: 0 auto;
+.bubble {
+  width: 60px;
+  position: absolute;
+  top: 470px;
+  left: 310px;
+  opacity: 0;
+  animation-name: bubbleType1;
+  animation-duration: 4s;
+  animation-fill-mode: forwards;
 }
 
-
-img {
+/*#mainscreen img {
   width: 5px;
   height: 5px;
   background: url(../images/coke.gif);
   background-size: 60px 60px;
   background-repeat: no-repeat;
   border-style: none;
-  position: relative;
+  position: absolute: ;
   top:400px;
   margin: -20px;
   padding: 30px;
@@ -37,21 +50,17 @@ img {
   animation-name: bubbleType1;
   animation-duration: 4s;
   animation-fill-mode: forwards;
-}
-
-
+}*/
 
 .bubbles {
-
   background: url(../images/smiley.jpg);
   background-size: 60px 60px;
   background-repeat: no-repeat;
-
 }
 
 @keyframes bubbleType1 {
-    0% {left: 20px}
-    10% {opacity: 1; left: 10px}
-    80% {opacity: 1; left: 30px}
-    100% {opacity: 0};
+    0%   { opacity: 0 }
+    20%  { opacity: 1 }
+    80%  { opacity: 1 }
+    100% { opacity: 0 };
 }
