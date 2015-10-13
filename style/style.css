@@ -6,7 +6,7 @@
   font-size: 30px;
 }
 
-h3 {
+#score {
   font-size: 30px;
   color: white;
   font-family: Arial;
@@ -15,6 +15,11 @@ h3 {
   margin: 10px;
 
 }
+
+#start-btn {
+  margin: 0 auto;
+}
+
 
 img {
   width: 60px;
@@ -27,19 +32,23 @@ img {
   margin: 0px;
   padding: 0px;
   opacity: 0.5;
+  animation-name: bubbleType1;
+  animation-duration: 4s;
+  animation-fill-mode: forwards;
 }
 
 
 
 .bubbles {
-  width: 60px;
-  height: 60px;
+
   background: url(../images/smiley.jpg);
   background-size: 60px 60px;
-  background-repeat: no-repeat;
-  border-style: none;
-  position: relative;
-  margin: 0px;
-  padding: 0px;
-  opacity: 0.5;
+
+}
+
+@keyframes bubbleType1 {
+    0% {top:400px;}
+    10% {opacity: 1;}
+    80% {opacity: 1;}
+    100% {top: -20px; opacity: 0};
 }
