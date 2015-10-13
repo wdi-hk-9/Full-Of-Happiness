@@ -28,8 +28,8 @@ $(document).ready( function(){
   };
 
   var startGame = function() {
-    game.bubbleTimer = setInterval(genBubble, 1000);
-    // startTimer();
+    game.bubbleTimer = setInterval(genBubble, 500);
+    startTimer();
     genBubble();
   }
 
@@ -37,9 +37,23 @@ $(document).ready( function(){
 
   var game = new Game();
 
+  //Set timer
 
+  var timer;
+  var secondsLeft = 10;
+  var startTimer = function(){
+    timer = setInterval(everySecond, 1000);
+  };
+  var everySecond = function(){
+    console.log("Time left: " + secondsLeft--);
 
-
-
+  //When time up, stop bubble, show the final score and reward message
+    if (secondsLeft <= 0) {
+      clearInterval(timer);
+      secondsLeft = 10;
+      console.log("Time's up!");
+      clearInterval(game.bubbleTimer);
+    };
+  };
 
 });
