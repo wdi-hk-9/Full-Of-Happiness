@@ -3,6 +3,7 @@
   height: 480px;
   background: red;
   margin: 0 auto;
+  padding: 25px;
   font-size: 30px;
 }
 
@@ -12,7 +13,7 @@
   font-family: Arial;
   position: relative;
   text-align: right;
-  margin: 10px;
+  margin: -10px;
 
 }
 
@@ -22,15 +23,16 @@
 
 
 img {
-  width: 60px;
-  height: 60px;
+  width: 5px;
+  height: 5px;
   background: url(../images/coke.gif);
   background-size: 60px 60px;
   background-repeat: no-repeat;
   border-style: none;
   position: relative;
-  margin: 0px;
-  padding: 0px;
+  top:400px;
+  margin: -20px;
+  padding: 30px;
   opacity: 0.5;
   animation-name: bubbleType1;
   animation-duration: 4s;
@@ -43,12 +45,13 @@ img {
 
   background: url(../images/smiley.jpg);
   background-size: 60px 60px;
+  background-repeat: no-repeat;
 
 }
 
 @keyframes bubbleType1 {
-    0% {top:400px;}
-    10% {opacity: 1;}
-    80% {opacity: 1;}
-    100% {top: -20px; opacity: 0};
+    0% {left: 20px}
+    10% {opacity: 1; left: 10px}
+    80% {opacity: 1; left: 30px}
+    100% {opacity: 0};
 }

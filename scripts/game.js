@@ -1,9 +1,13 @@
 //Create a game object
 
-  //var timer --> Determine the game stage
-  //var score
+var GAME = function(){
+
+  this.timer = 1000;
+
+  this.score = 0;
   //var difficulty <-- vary according to timer
   //var numOfBubble
+}
 
 //Game function (jquery and html related):
   //Set Difficulty as time pass on
