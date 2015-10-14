@@ -22,7 +22,7 @@ $(document).ready( function(){
     $("#mainscreen img:last-child").css('height', sizeRandom);
     $("#mainscreen img:last-child").animate({ "top": "-=380px" }, game.bubbleSpeed, function(){ this.remove()} );
 
-    $('#'+bubbleId).mouseover("click", function(event){
+    $('#'+bubbleId).one("mouseenter", function(event){
       $(event.target).attr("src", "images/smiley.png");
       updateScore(1000);
     });
