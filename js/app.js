@@ -17,8 +17,7 @@ $(document).ready( function(){
     var leftRandom = parseInt(Math.random()*310);
     $("#mainscreen img:last-child").css('left', leftRandom);
 
-    var speed = parseInt(Math.random()*2000 + 4000);
-    $("#mainscreen img:last-child").animate({ "top": "-=420px" }, speed, function(){ this.remove()} );
+    $("#mainscreen img:last-child").animate({ "top": "-=420px" }, game.bubbleSpeed, function(){ this.remove()} );
 
     $('#'+bubbleId).one("click", function(event){
       console.log("score");
@@ -27,33 +26,56 @@ $(document).ready( function(){
     });
   };
 
-  var startGame = function() {
-    game.bubbleTimer = setInterval(genBubble, 500);
-    startTimer();
-    genBubble();
-  }
 
-  $("#start-btn").on("click", startGame);
-
-  var game = new Game();
-
-  //Set timer
+  //=========Set timer==========
 
   var timer;
-  var secondsLeft = 10;
+  var secondsLeft = 20;
   var startTimer = function(){
     timer = setInterval(everySecond, 1000);
   };
+
   var everySecond = function(){
     console.log("Time left: " + secondsLeft--);
 
-  //When time up, stop bubble, show the final score and reward message
+    //When time remains 60%, increase the speed
+    if (10 > secondsLeft>0) {
+      level2();
+    }
+    //When time remains 30%, increase the bubbles
+    // if (10 > secondsLeft>0) {
+    //   level3();
+    // }
+    //When time up, stop bubble, show the final score and reward message
     if (secondsLeft <= 0) {
-      clearInterval(timer);
-      secondsLeft = 10;
       console.log("Time's up!");
       clearInterval(game.bubbleTimer);
+      clearInterval(timer);
+      secondsLeft = 10;
     };
   };
+
+  //=========Difficulty=========
+  var level1 = function() {
+    game.bubbleTimer = setInterval(genBubble, 3000);
+    startTimer();
+  }
+
+  var level2 = function() {
+    clearInterval(game.bubbleTimer);
+    game.bubbleSpeed = parseInt(Math.random()*2000 + 1000);
+    game.bubbleTimer = setInterval(genBubble, 200);
+  }
+
+  var level3 = function() {
+    clearInterval(game.bubbleTimer);
+    game.bubbleTimer = setInterval(genBubble, 200);
+
+  }
+
+  //=========Start Game==========
+  $("#start-btn").on("click", level1);
+
+  var game = new Game();
 
 });
