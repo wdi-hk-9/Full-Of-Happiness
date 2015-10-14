@@ -18,7 +18,7 @@ $(document).ready( function(){
     var leftRandom = parseInt(Math.random()*310);
     $("#mainscreen img:last-child").css('left', leftRandom)
 
-    $("#mainscreen img:last-child").animate({ "top": "-=420px" }, game.bubbleSpeed, function(){ this.remove()} );
+    $("#mainscreen img:last-child").animate({ "top": "-=380px" }, game.bubbleSpeed, function(){ this.remove()} );
 
     $('#'+bubbleId).one("click", function(event){
       $(event.target).attr("src", "images/smiley.jpg");
@@ -29,8 +29,9 @@ $(document).ready( function(){
   //=========Difficulty=========
   var level1 = function() {
     updateScore(game.score - game.score);
-    displayUI("#score");
-    hideUI("#start-btn, #message1, #message2");
+    displayUI("#score", 3000);
+    slideUpUI("#start-btn, #message1, #message2");
+    moveBackground();
     game.bubbleTimer = setInterval(genBubble, 3000);
     startTimer();
   }
@@ -81,27 +82,41 @@ $(document).ready( function(){
     //Time's Up
     if (secondsLeft <= 0) {
       console.log("Time's up!");
+      displayUI("#score", 3000);
+      displayUI("#message3", 3000);
+      fadeOutUI("#message3", 4000);
+      displayUI("#message4", 9000);
+      // start btn not show as it is slideup;
+      // displayUI("#start-btn", 3000);
       clearInterval(game.bubbleTimer);
       clearInterval(timer);
       console.log(game.score);
-      secondsLeft = 60;
+      secondsLeft = 80;
     };
   };
 
-  //=========User Interface Display==========
+  //=========User Interface Control==========
 
-  function displayUI(elementID){
-
-    $(elementID).animate({ "opacity": "1" }, 1000);
+  function displayUI(elementID, delayVal){
+    $(elementID).delay(delayVal).animate({ "opacity": "1" }, 1000);
   }
 
-  function hideUI(elementID){
-    $(elementID).animate({ "opacity": "0" }, 1000);
+  function fadeOutUI(elementID, delayVal){
+    $(elementID).delay(delayVal).animate({ "opacity": "0" }, 1000);
   }
+
+  function slideUpUI(elementID){
+    $(elementID).slideUp(500);
+  }
+
+  function moveBackground(){
+    $("#background").delay(1000).animate({ "top": "35" }, 500);
+  }
+
 
   //=========Start Game==========
-  $("#start-btn").on("click", level1);
 
+  $("#start-btn").on("click", level1);
   var game = new Game();
 
 });

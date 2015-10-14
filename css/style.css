@@ -2,15 +2,13 @@
   width: 400px;
 }
 
-#message1, #message2 {
+#message1, #message2, #message3, #message4 {
   width: 320px;
   position: absolute;
-
   display:block;
   text-align: center;
   font-family: Arial;
   color: white;
-  font-weight: bold;
 }
 
 #message1{
@@ -21,13 +19,22 @@
 #message2{
   font-size: 40px;
   top: 170px;
+  font-weight: bold;
 }
+
+#message3, #message4 {
+    top: 220px;
+    font-size: 30px;
+    opacity: 0;
+}
+
+
 
 *#background {
   width: 370px;
   display: block;
   position: absolute;
-  top: 210px;
+  top: 220px;
   margin: 0px 0px 0px -25px;
 }
 
@@ -75,7 +82,7 @@
   left: 310px;
   opacity: 0;
   animation-name: bubbleType1;
-  animation-duration: 4s;
+  animation-duration: 3.5s;
   animation-fill-mode: forwards;
 }
 
@@ -96,11 +103,11 @@
   animation-fill-mode: forwards;
 }*/
 
-.bubbles {
+/*.bubbles {
   background: url(../images/smiley.jpg);
   background-size: 60px 60px;
   background-repeat: no-repeat;
-}
+}*/
 
 @keyframes bubbleType1 {
     0%   { opacity: 0 }
