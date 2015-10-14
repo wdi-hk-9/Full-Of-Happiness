@@ -11,7 +11,7 @@ $(document).ready( function(){
   var genBubble = function(){
     game.numBubbles++;
     var bubbleId = "bubble-" + game.numBubbles;
-    $("#mainscreen").append('<img src="images/coke.gif" class="bubble" id = "'+ bubbleId +'"/>');
+    $("#mainscreen").append('<img src="images/bubble.png" class="bubble" id = "'+ bubbleId +'"/>');
 
 
     // left: 0 -310
@@ -20,17 +20,18 @@ $(document).ready( function(){
 
     $("#mainscreen img:last-child").animate({ "top": "-=380px" }, game.bubbleSpeed, function(){ this.remove()} );
 
-    $('#'+bubbleId).one("click", function(event){
-      $(event.target).attr("src", "images/smiley.jpg");
+    $('#'+bubbleId).mouseover("click", function(event){
+      $(event.target).attr("src", "images/smiley.png");
       updateScore(1000);
     });
   };
 
   //=========Difficulty=========
   var level1 = function() {
-    updateScore(game.score - game.score);
+    updateScore(- game.score);
     displayUI("#score", 3000);
-    slideUpUI("#start-btn, #message1, #message2");
+    slideUpUI("#start-btn, #message1, #message2", 0);
+    fadeOutUI("#message4", 0);
     moveBackground();
     game.bubbleTimer = setInterval(genBubble, 3000);
     startTimer();
@@ -82,12 +83,11 @@ $(document).ready( function(){
     //Time's Up
     if (secondsLeft <= 0) {
       console.log("Time's up!");
-      displayUI("#score", 3000);
       displayUI("#message3", 3000);
-      fadeOutUI("#message3", 4000);
-      displayUI("#message4", 9000);
-      // start btn not show as it is slideup;
-      // displayUI("#start-btn", 3000);
+      fadeOutUI("#message3", 2000);
+      displayUI("#message4", 7000);
+      $("#start-btn").html("Play Again").css("width", "140")
+      slideDownUI("#start-btn", 9000);
       clearInterval(game.bubbleTimer);
       clearInterval(timer);
       console.log(game.score);
@@ -105,8 +105,12 @@ $(document).ready( function(){
     $(elementID).delay(delayVal).animate({ "opacity": "0" }, 1000);
   }
 
-  function slideUpUI(elementID){
-    $(elementID).slideUp(500);
+  function slideUpUI(elementID, delayVal){
+    $(elementID).delay(delayVal).slideUp(500);
+  }
+
+  function slideDownUI(elementID, delayVal){
+    $(elementID).delay(delayVal).slideDown(500);
   }
 
   function moveBackground(){
