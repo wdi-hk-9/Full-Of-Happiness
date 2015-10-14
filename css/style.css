@@ -2,14 +2,57 @@
   width: 400px;
 }
 
+#message1, #message2 {
+  width: 320px;
+  position: absolute;
+
+  display:block;
+  text-align: center;
+  font-family: Arial;
+  color: white;
+  font-weight: bold;
+}
+
+#message1{
+  font-size: 30px;
+  top: 100px;
+}
+
+#message2{
+  font-size: 40px;
+  top: 170px;
+}
+
+*#background {
+  width: 370px;
+  display: block;
+  position: absolute;
+  top: 210px;
+  margin: 0px 0px 0px -25px;
+}
+
 #start-btn {
+  position: relative;
+  top: 300px;
+  display:block;
   margin: 0 auto;
+  padding: 5px;
+  width: 80px;
+  height: 25px;
+  text-align: center;
+  color: white;
+  font-family: Arial;
+  font-size: 20px;
+  font-weight: bold;
+  border-style: solid;
+  border-color: white;
+  border-radius: 25px;
 }
 
 #mainscreen {
   width: 320px;
   height: 480px;
-  background: red;
+  background: #E51E2B;
   margin: 0 auto;
   padding: 25px;
   position: relative;
@@ -22,6 +65,7 @@
   position: relative;
   text-align: right;
   margin: -10px;
+  opacity: 0;
 }
 
 .bubble {

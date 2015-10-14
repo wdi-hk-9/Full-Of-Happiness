@@ -29,6 +29,8 @@ $(document).ready( function(){
   //=========Difficulty=========
   var level1 = function() {
     updateScore(game.score - game.score);
+    displayUI("#score");
+    hideUI("#start-btn, #message1, #message2");
     game.bubbleTimer = setInterval(genBubble, 3000);
     startTimer();
   }
@@ -63,17 +65,17 @@ $(document).ready( function(){
 
     //Level 2
     if (secondsLeft == 60) {
-      console.log("started level 2")
+      console.log("started level 2");
       level2();
     }
     //Level 3
     if (secondsLeft == 40) {
-      console.log("started level 3")
+      console.log("started level 3");
       level3();
     }
     //Level 4
     if (secondsLeft == 20) {
-      console.log("started level 4")
+      console.log("started level 4");
       level4();
     }
     //Time's Up
@@ -86,6 +88,16 @@ $(document).ready( function(){
     };
   };
 
+  //=========User Interface Display==========
+
+  function displayUI(elementID){
+
+    $(elementID).animate({ "opacity": "1" }, 1000);
+  }
+
+  function hideUI(elementID){
+    $(elementID).animate({ "opacity": "0" }, 1000);
+  }
 
   //=========Start Game==========
   $("#start-btn").on("click", level1);
