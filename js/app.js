@@ -16,8 +16,10 @@ $(document).ready( function(){
 
     // left: 0 -310
     var leftRandom = parseInt(Math.random()*310);
-    $("#mainscreen img:last-child").css('left', leftRandom)
-
+    var sizeRandom = parseInt(60 - Math.random()*15);
+    $("#mainscreen img:last-child").css('left', leftRandom);
+    $("#mainscreen img:last-child").css('width', sizeRandom);
+    $("#mainscreen img:last-child").css('height', sizeRandom);
     $("#mainscreen img:last-child").animate({ "top": "-=380px" }, game.bubbleSpeed, function(){ this.remove()} );
 
     $('#'+bubbleId).mouseover("click", function(event){
