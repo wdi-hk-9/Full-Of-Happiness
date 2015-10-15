@@ -12,40 +12,29 @@ $(document).ready( function(){
     game.numBubbles++;
     var bubbleId = "bubble-" + game.numBubbles;
     $("#mainscreen").append('<img src="images/bubble.png" class="bubble" id = "'+ bubbleId +'"/>');
-
-
-    // left: 0 -310
+    //Control the x position, size, speed and the ending of bubble
     var leftRandom = parseInt(Math.random()*310);
     var sizeRandom = parseInt(60 - Math.random()*15);
     $("#mainscreen img:last-child").css('left', leftRandom);
     $("#mainscreen img:last-child").css('width', sizeRandom);
     $("#mainscreen img:last-child").css('height', sizeRandom);
     $("#mainscreen img:last-child").animate({ "top": "-=380px" }, game.bubbleSpeed, function(){ this.remove()} );
-    // reaction on clicking bubbles
+    //Reaction on clicking bubbles
     $('#'+bubbleId).one("mouseenter", function(event){
       $(event.target).attr("src", "images/smiley.png");
       updateScore(1000);
 
-      // Add words for rewarding
-      // if (secondsLeft > 20){
+      //Generate words as immediate rewards to player
         var bubblePosition = $(event.target).position();
         var bubbleTopValue = bubblePosition.top - 30;
         var bubbleLeftValue = bubblePosition.left - 30;
         var wordId = "word-" + game.numBubbles;
-        $("#mainscreen").append(
-          "<div id = '"
-          + wordId +
-          "' class = 'word' style='top:"
-          + bubbleTopValue +
-          "px; left:"
-          + bubbleLeftValue +
-          "px;'>"+wordRandom(game.numBubbles)+"</div>");
+        $("#mainscreen").append("<div id = '"+ wordId +"' class = 'word' style='top:"+ bubbleTopValue +"px; left:"+ bubbleLeftValue +"px;'>"+wordRandom(game.numBubbles)+"</div>");
         $('#'+wordId).animate({ "top": "-=100px" }, 1000, function(){ this.remove()} );
-      // }
     });
   };
 
-  //=========Random Word for Rewarding=========
+  //=========Generate Random Word for Rewarding=========
     function wordRandom(num){
       if (num % 2 == 0){
         return ("Great!");
@@ -57,7 +46,7 @@ $(document).ready( function(){
     };
 
 
-  //=========Difficulty=========
+  //=========Level of Difficulty=========
   var level1 = function() {
     $(".word").remove();
     updateScore(- game.score);
@@ -86,7 +75,7 @@ $(document).ready( function(){
     game.bubbleSpeed = game.randomSpeed(3000)
     game.bubbleTimer = setInterval(genBubble, 200);
   }
-  //=========Set timer==========
+  //=========Set timer to control difficulty and game stages==========
 
   var timer;
   var secondsLeft = 80;

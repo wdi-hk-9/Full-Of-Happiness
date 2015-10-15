@@ -103,7 +103,6 @@
     100% { opacity: 0 }
 }
 
-/*For Debugging the remaining words on screen*/
 @keyframes wordOpacity {
     0%   { opacity: 1 }
     100% { opacity: 0 }
