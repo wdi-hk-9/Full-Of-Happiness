@@ -1,0 +1,110 @@
+.container {
+  width: 400px;
+}
+
+#message1, #message2, #message3, #message4 {
+  width: 320px;
+  position: absolute;
+  display:block;
+  text-align: center;
+  font-family: Arial;
+  color: white;
+}
+
+#message1{
+  font-size: 30px;
+  top: 100px;
+}
+
+#message2{
+  font-size: 40px;
+  top: 170px;
+  font-weight: bold;
+}
+
+#message3, #message4 {
+    top: 220px;
+    font-size: 30px;
+    opacity: 0;
+}
+
+*#background {
+  width: 370px;
+  display: block;
+  position: absolute;
+  top: 220px;
+  margin: 0px 0px 0px -25px;
+}
+
+#start-btn {
+  position: relative;
+  top: 300px;
+  display:block;
+  margin: 0 auto;
+  padding: 5px;
+  width: 80px;
+  height: 25px;
+  text-align: center;
+  color: white;
+  font-family: Arial;
+  font-size: 20px;
+  font-weight: bold;
+  border-style: solid;
+  border-color: white;
+  border-radius: 25px;
+}
+
+#mainscreen {
+  width: 320px;
+  height: 480px;
+  background: #E51E2B;
+  margin: 0 auto;
+  padding: 25px;
+  position: relative;
+}
+
+#score {
+  font-size: 30px;
+  color: white;
+  font-family: Arial;
+  position: relative;
+  text-align: right;
+  margin: -10px;
+  opacity: 0;
+}
+
+.bubble {
+  width: 60px;
+  position: absolute;
+  top: 470px;
+  left: 310px;
+  opacity: 0;
+  animation-name: bubbleOpacity;
+  animation-duration: 3.5s;
+  animation-fill-mode: forwards;
+}
+
+.word {
+  width: 100px;
+  height: 100px;
+  font-size: 18px;
+  position: absolute;
+  font-family: Arial;
+  color: white;
+  animation-name: wordOpacity;
+  animation-duration: 3.5s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes bubbleOpacity {
+    0%   { opacity: 0 }
+    20%  { opacity: 1 }
+    80%  { opacity: 1 }
+    100% { opacity: 0 }
+}
+
+/*For Debugging the remaining words on screen*/
+@keyframes wordOpacity {
+    0%   { opacity: 1 }
+    100% { opacity: 0 }
+}
