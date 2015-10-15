@@ -15,12 +15,12 @@ Make something that will bring people immediate happeness. Just like when I get 
 ## What I try to achieve in this project
 - Create an addictive game that will bring progressive enhancement of challenge, fun and rewards to players
 
-### Challenge:
-- When game passes only, more bubbles will come up with variation in speed
+  ### Challenge:
+  - When game passes only, more bubbles will come up with variation in speed
 
-### Fun and Rewards:
-- The game will fill up the screen full of smiley faces. That's why the game is named as "Full of Happiness"
-- I try to make a game that will keep saying - "You are great!", "You are beautiful!", "You are Awesome"
+  ### Fun and Rewards:
+  - The game will fill up the screen full of smiley faces. That's why the game is named as "Full of Happiness"
+  - I try to make a game that will keep saying - "You are great!", "You are beautiful!", "You are Awesome"
 
 ## Project Features
 - Random generation of game elements
